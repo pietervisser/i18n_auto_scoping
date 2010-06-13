@@ -44,7 +44,7 @@ module I18nAutoScoping
         # Override translate method in order to set autoscoping
         def translate(locale, key, options = {})
           # Set the default scope if needed
-          if !key.include?('.') and !options.has_key?(:scope) or options[:scope] == :autoscoping
+          if !key.to_s.include?('.') and !options.has_key?(:scope) or options[:scope] == :autoscoping
             options[:scope] = I18n::Scope.default 
           end
           i18n_auto_scoping_translate(locale, key, options)
